@@ -1,3 +1,4 @@
 chmod +x \
-update-system.sh \
-install-docker.sh
+system-update.sh \
+docker-install.sh \
+docker-clear.sh
