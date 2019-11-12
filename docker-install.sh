@@ -3,11 +3,23 @@
 # does the trick
 
 
+### notes
+# currently (2019-08-21) this only works with raspbian stretch, buster does not work.
+
+
 ### install software
+## apt-utils
+apt-get install -y apt-utils
 ## docker
-apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-curl -fsSL https://download.docker.com/linux/raspbian/gpg | apt-key add -
-add-apt-repository "deb [arch=armhf] https://download.docker.com/linux/raspbian $(lsb_release -cs) stable"
-  # $(lsb_release -cs) returns for example "xenial"
+echo "deb http://download.docker.com/linux/debian stretch stable" >> /etc/apt/sources.list
 apt-get update
 apt-get install -y docker-ce docker-ce-cli containerd.io
+
+
+### user/group modifications
+# add (current) 'pi' user to docker group
+usermod -aG docker $USER
+
+
+# if this does not work:
+#  curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
