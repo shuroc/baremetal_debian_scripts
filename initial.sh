@@ -15,6 +15,7 @@ echo "Adding $USER to sudoers."
 /sbin/usermod -aG sudo $(who am i | awk '{print $1}') # making sure the correct user is added
 
 read -p "Do you want to reboot now, so the membership gets applied? " -n 1 -r
+echo # to move cursor to next line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
   # Note: Logout would suffice, but won't work (cleanly) from script.
