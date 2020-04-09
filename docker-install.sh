@@ -25,7 +25,7 @@ usermod -aG docker $(who am i | awk '{print $1}') # making sure the correct user
 # if this does not work:
 #  curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
 
-read -p "Do you want to reboot now, so the membership gets applied? " -n 1 -r
+read -p "Do you want to reboot now, so the membership gets applied? [y|n] " -n 1 -r
 # Note: relog would suffice, but isn't (cleanly) possible from script
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
