@@ -170,8 +170,9 @@ bar {
 sudo apt install i3 -y
 
 # enable passwordless shutdown etc.
-sudo echo "## user is allowed to execute shutdown, halt and reboot" >> /etc/sudoers
-sudo echo "$USER ALL=NOPASSWD: /sbin/halt, /sbin/reboot, /sbin/poweroff" >> /etc/sudoers
+echo "" | sudo tee -a /etc/sudoers > /dev/null # add empty line
+echo "## user is allowed to execute poweroff, reboot and halt" | sudo tee -a /etc/sudoers > /dev/null
+echo "$USER ALL=NOPASSWD: /sbin/poweroff, /sbin/reboot, /sbin/halt" | sudo tee -a /etc/sudoers > /dev/null
 
 # next steps message
 echo "Next steps:"
