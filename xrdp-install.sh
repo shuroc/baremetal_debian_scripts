@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# How to run
+#   Install debian 10 with no gui at all, but with basic-system-tools package.
+#   git clone https://github.com/tillhoff/baremetal-debian-scripts
+#   chmod +x xrdp-install.sh && xrdp-install.sh
+
 # run install.sh from Microsoft -> xrdp installer
 wget https://raw.githubusercontent.com/microsoft/linux-vm-tools/master/ubuntu/18.04/install.sh
 chmod +x install.sh
@@ -17,8 +22,8 @@ echo '
 sudo apt install i3 -y
 
 # enable passwordless shutdown etc.
-echo "## user is allowed to execute shutdown, halt and reboot" >> /etc/sudoers
-echo "$USER ALL=NOPASSWD: /sbin/halt, /sbin/reboot, /sbin/poweroff" >> /etc/sudoers
+sudo echo "## user is allowed to execute shutdown, halt and reboot" >> /etc/sudoers
+sudo echo "$USER ALL=NOPASSWD: /sbin/halt, /sbin/reboot, /sbin/poweroff" >> /etc/sudoers
 
 # next steps message
 echo "Next steps:"
