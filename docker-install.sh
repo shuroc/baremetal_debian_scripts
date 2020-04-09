@@ -1,6 +1,4 @@
-# to run this script you must first allow execution
-#   chmod +x ./install.sh
-# does the trick
+#!/bin/bash
 
 ### notes
 # currently (2019-08-21) this only works with raspbian stretch, buster does not work.
@@ -32,7 +30,3 @@ then
     systemctl reboot
 fi
 echo # start new line
-
-######
-# To run this script properly, run it with bash. On Debian run 'sudo bash ./initial.sh'.
-######
