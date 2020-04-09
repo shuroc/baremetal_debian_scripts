@@ -8,7 +8,7 @@
 # run install.sh from Microsoft -> xrdp installer
 wget https://raw.githubusercontent.com/microsoft/linux-vm-tools/master/ubuntu/18.04/install.sh
 chmod +x install.sh
-sudo install.sh
+sudo ./install.sh
 rm install.sh
 
 # install gnome-terminal (supports copy-paste)
