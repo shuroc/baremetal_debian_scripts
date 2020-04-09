@@ -1,15 +1,10 @@
 #!/bin/bash
 
-# How to run
-#   Install debian 10 with no gui at all, but with basic-system-tools package.
-#   git clone https://github.com/tillhoff/baremetal-debian-scripts
-#   chmod +x xrdp-install.sh && xrdp-install.sh
-
 # run install.sh from Microsoft -> xrdp installer
 wget https://raw.githubusercontent.com/microsoft/linux-vm-tools/master/ubuntu/18.04/install.sh
-chmod +x install.sh
+chmod +x ./install.sh
 sudo ./install.sh
-rm install.sh
+rm ./install.sh
 
 # install gnome-terminal (supports copy-paste)
 sudo apt install gnome-terminal -y --no-install-recommends
