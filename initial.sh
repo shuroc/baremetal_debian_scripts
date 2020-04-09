@@ -25,5 +25,5 @@ fi
 echo # start new line
 
 ######
-# To run this script properly, run it with bash. On Debian run 'sudo bash ./initial.sh'.
+# To run this script properly, run it with bash. On Debian (su root) run 'bash ./initial.sh'.
 ######
