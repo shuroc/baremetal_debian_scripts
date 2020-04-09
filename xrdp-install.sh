@@ -15,6 +15,7 @@ rm install.sh
 sudo apt install gnome-terminal -y --no-install-recommends
 
 # configure i3 (before installing, so it detects the config file)
+mkdir -p ~/.config/i3/
 echo '
 ' > ~/.config/i3/config
 
