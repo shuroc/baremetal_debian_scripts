@@ -6,7 +6,10 @@ This contains my most used commands on new debian systems, so why not make it fo
 
 ## how to use
 
-Install your Debian system with 'basic-system-tools'-package selected.
+Install your Debian system.
+If on Hyper-V, select the hyper-v network-driver.
+At the end continue with only the 'basic-system-tools'-package selected.
+
 ```
 $ su root
 $ apt install git -y
@@ -22,3 +25,10 @@ $ ./xrdp-install.sh
 $ sudo ./docker-install.sh
 # reboot
 ```
+
+## change bootorder from OS
+If you have an EFI-based BIOS, you can change the boot-settings from your OS.
+To display the current state run ```efibootmgr```.
+To disable one of the entry run ```sudo efibootmgr -A -b 0008```.
+```-A``` stands for disabling, while ```-a``` would stand for activating.
+```-b XXXX``` contains the ID of the bootdevice.
