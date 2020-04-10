@@ -19,7 +19,7 @@ apt install docker-ce docker-ce-cli containerd.io -y
 
 ## user/group modifications
 # add current user to docker group
-usermod -aG docker $(whoami | awk '{print $1}') # making sure the correct user is added
+usermod -aG docker $(who am i | awk '{print $1}') # making sure the correct user is added
 # if this does not work:
 #  curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
 
