@@ -23,10 +23,12 @@ $ ./initial.sh
 $ cd baremetal-debian-scripts
 $ ./xrdp-install.sh
 $ sudo ./docker-install.sh
-# reboot
+# poweroff/reboot
 ```
 
+If you're running on Hyper-V also make sure the last poweroff/reboot is a poweroff, then close the vmconnect-window and reboot/-connect anew. Otherwise the enhanced session won't be available.
 Don't forget to run ```Set-VM -VMName <your_vm_name> -EnhancedSessionTransportType HvSocket``` on your Hyper-V host, if you're running on a vm.
+
 
 ## change bootorder from OS
 If you have an EFI-based BIOS, you can change the boot-settings from your OS.
