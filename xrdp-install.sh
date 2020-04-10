@@ -180,3 +180,9 @@ echo "- shutdown"
 echo "- in the Powershell of the host, enter (github microsoft linux-vm-tools wiki):"
 echo "  Set-VM -VMName <your_vm_name> -EnhancedSessionTransportType HvSocket"
 echo "- start & enjoy"
+
+#####
+# For gnome-terminal:
+# - set theme to gray on black
+# - set foregroundcolor to #CCCCCC
+#####
