@@ -26,6 +26,8 @@ $ sudo ./docker-install.sh
 # reboot
 ```
 
+Don't forget to run ```Set-VM -VMName <your_vm_name> -EnhancedSessionTransportType HvSocket``` on your Hyper-V host, if you're running on a vm.
+
 ## change bootorder from OS
 If you have an EFI-based BIOS, you can change the boot-settings from your OS.
 To display the current state run ```efibootmgr```.
