@@ -29,6 +29,9 @@ $ sudo ./docker-install.sh
 If you're running on Hyper-V also make sure the last poweroff/reboot is a poweroff, then close the vmconnect-window and reboot/-connect anew. Otherwise the enhanced session won't be available. Don't forget to run ```Set-VM -VMName <your_vm_name> -EnhancedSessionTransportType HvSocket``` on your Hyper-V host.
 
 
+## remember
+systemctl reboot/poweroff
+
 ## change bootorder from OS
 If you have an EFI-based BIOS, you can change the boot-settings from your OS.
 To display the current state run ```efibootmgr```.
