@@ -18,6 +18,7 @@ chmod 700 /home/$username/.ssh
 chmod 600 /home/$username/.ssh/authorized_keys
 
 # disable ssh-login with root-account
+sed -i "s/^#PasswordAuthentication yes$/PasswordAuthentication no/" /etc/ssh/sshd_config
 sed -i "s/^PermitRootLogin yes$/PermitRootLogin no/" /etc/ssh/sshd_config
 systemctl restart sshd
 

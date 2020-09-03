@@ -1,5 +1,9 @@
 #/bin/bash
 
+#####
+# updating & basic tooling
+#####
+
 echo "Updating apt-packages."
 apt update && apt upgrade -y && apt autoremove && apt clean -y
 
@@ -8,6 +12,21 @@ apt install coreutils ntp -y
 echo "To manually resync time use"
 echo "  service ntp restart"
 sleep 3
+
+#####
+# hardening
+#####
+
+apt install fail2ban -y
+sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+sudo sed -i 's/bantime  = 10m$/bantime  = 1h/' /etc/fail2ban/jail.local
+sudo sed -i 's/findtime  = 10m$/findtime  = 1h/' /etc/fail2ban/jail.local
+# jail for ssh is activated by default
+sudo service fail2ban restart
+
+#####
+# install and configure sudo
+#####
 
 echo "Installing sudo."
 apt install sudo -y
