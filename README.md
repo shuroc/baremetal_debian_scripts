@@ -16,7 +16,6 @@ $ apt install git -y
 $ exit
 $ git clone https://github.com/tillhoff/baremetal-debian-scripts
 $ cd baremetal-debian-scripts
-$ chmod +x *.sh
 $ su root
 $ ./initial.sh
 ## reboot
