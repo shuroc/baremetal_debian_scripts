@@ -6,7 +6,11 @@ POD_NETWORK_CIDR="10.244.0.0/16"
 
 # configuring container runtime
 # https://kubernetes.io/docs/setup/production-environment/container-runtimes/#docker
-echo "Please make sure you have docker installed!" && sleep 3
+echo "Reminder: no swap!"
+echo "Please make sure you have docker installed!"
+
+sleep 3 # wait, so the user has time to cancel the script
+
 printf '{
   "exec-opts": ["native.cgroupdriver=systemd"],
   "log-driver": "json-file",
@@ -62,9 +66,9 @@ curl -O -L https://github.com/projectcalico/calicoctl/releases/download/v3.16.1/
 chmod +x calicoctl
 sudo mv calicoctl /usr/local/bin/
 
-# ## kubernetes api datastore, 50 nodes or less
-# curl https://docs.projectcalico.org/manifests/calico.yaml -O
-# kubectl apply -f calico.yaml
+## kubernetes api datastore, 50 nodes or less
+curl https://docs.projectcalico.org/manifests/calico.yaml -O
+kubectl apply -f calico.yaml
 
 # ## etcd version:
 # curl https://docs.projectcalico.org/manifests/calico-etcd.yaml -o calico.yaml
