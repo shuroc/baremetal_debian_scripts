@@ -75,3 +75,9 @@ sudo mv calicoctl /usr/local/bin/
 # https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/#control-plane-node-isolation
 # -> Allow scheduling of pods on the control-plane node, for example for a single-machine Kubernetes cluster (for development)
 kubectl taint nodes --all node-role.kubernetes.io/master-
+
+
+# Add autocompletion and alias to bashrc
+printf "source <(kubectl completion bash)\n" | tee -a ~/.bashrc >/dev/null
+printf "alias k=kubectl\n" | tee -a ~/.bashrc >/dev/null
+printf "source <(kubectl completion bash | sed 's/kubectl/k/g')\n" | tee -a ~/.bashrc >/dev/null
