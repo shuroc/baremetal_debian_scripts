@@ -9,14 +9,14 @@ version=1.14.3
 
 
 installed_version=$(go version | cut -d' ' -f3 | cut -d'o' -f2)
-installcheck=$?
-if [[ $installcheck -ne 0 ]]; then
+
+if [ "$installed_version" == "" ]; then
   # first installation only
 
   export PATH=$PATH:/usr/local/go/bin
 fi
 
-if [ "$installcheck" != "0" ] || [ "$installed_version" != "$version" ]; then
+if [ "$installed_version" == "" ] || [ "$installed_version" != "$version" ]; then
   # on first installation and
   # on version changes, too
 
