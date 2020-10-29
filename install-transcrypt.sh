@@ -14,7 +14,7 @@ if [ "$installed_version" == "" ] || [ "$installed_version" != "$version" ]; the
   # on first installation and
   # on version changes, too
 
-  git clone --singlebranch --branch v$version https://github.com/elasticdog/transcrypt.git
+  git clone --single-branch --branch v$version https://github.com/elasticdog/transcrypt.git
   chmod +x transcrypt/transcrypt
   sudo mv transcrypt/transcrypt /usr/local/bin/transcrypt
   rm -drf ./transcrypt
