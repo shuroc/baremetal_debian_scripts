@@ -11,8 +11,8 @@ If on Hyper-V, select the hyper-v network-driver.
 At the end continue with only the 'basic-system-tools'-package selected.
 
 ```
-$ su root
-$ apt install git -y
+$ su root # if needed
+$ apt install -y git
 $ exit
 $ git clone https://github.com/tillhoff/baremetal-debian-scripts
 $ cd baremetal-debian-scripts
