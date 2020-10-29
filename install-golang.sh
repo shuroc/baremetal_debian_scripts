@@ -13,7 +13,7 @@ installed_version=$(go version | cut -d' ' -f3 | cut -d'o' -f2)
 if [ "$installed_version" == "" ]; then
   # first installation only
 
-  export PATH=$PATH:/usr/local/go/bin
+  echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.profile
 fi
 
 if [ "$installed_version" == "" ] || [ "$installed_version" != "$version" ]; then
