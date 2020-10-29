@@ -8,7 +8,7 @@ fi
 version=1.27.4
 
 
-installed_version=$(docker-compose version | grep docker-compose | cut -d' ' -f3 | cut -d',' -f1)
+installed_version=$((docker-compose version | grep docker-compose | cut -d' ' -f3 | cut -d',' -f1) 2>/dev/null)
 installcheck=$?
 
 if [ $installcheck -ne 0 -or "$installed_version" != "$version" ]; then
