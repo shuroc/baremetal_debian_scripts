@@ -14,6 +14,7 @@ if [ "$installed_version" == "" ]; then
   # first installation only
 
   echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.profile
+  source ~/.profile
 fi
 
 if [ "$installed_version" == "" ] || [ "$installed_version" != "$version" ]; then
