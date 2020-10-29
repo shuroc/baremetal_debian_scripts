@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $EUID -eq 0 ]; then
+if [[ $EUID -eq 0 ]]; then
   <&2 echo "You're root. This script isn't meant for that."
   exit
 fi

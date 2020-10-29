@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $EUID -eq 0 ]; then
+if [[ $EUID -eq 0 ]]; then
   <&2 echo "You're root. This script isn't meant for that."
   exit
 fi
@@ -10,7 +10,7 @@ version=3.0.0
 installed_version=$((task --version | cut -d' ' -f3) 2>/dev/null)
 installcheck=$?
 
-if [ $installcheck -ne 0 -or "$installed_version" != "$version" ]; then
+if [ "$installcheck" != "0" ] || [ "$installed_version" != "$version" ]; then
   # on first installation and
   # on version changes, too
   

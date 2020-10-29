@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ $EUID != 0 ]]; then
+if [[ $EUID -ne 0 ]]; then
   <&2 echo "You're not root. This script isn't meant for that."
   exit
 fi
@@ -23,7 +23,7 @@ add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(
 apt update
 apt install docker-ce docker-ce-cli containerd.io -y
 
-if [ $installcheck -ne 0 ]; then
+if [[ $installcheck -ne 0 ]]; then
   # first installation only
 
   ## user/group modifications
