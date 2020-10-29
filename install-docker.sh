@@ -8,7 +8,7 @@ fi
 # no specific version - if not installed, install it now
 
 
-installed_version=$(docker version --format '{{.Server.Version}}')
+installed_version=$(docker version --format '{{.Server.Version}}' 2>/dev/null)
 installcheck=$?
 
 apt install -y \
