@@ -20,8 +20,8 @@ $ su root
 $ ./initial.sh
 ## reboot
 $ cd baremetal-debian-scripts
-$ ./xrdp-install.sh
-$ sudo ./docker-install.sh
+$ ./install-xrdp.sh
+$ sudo ./install-docker.sh
 ## reboot (or poweroff on Hyper-V)
 ```
 

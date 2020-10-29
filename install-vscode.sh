@@ -1,5 +1,13 @@
 #!/bin/bash
 
+if [[ $EUID = 0 ]]; then
+  <&2 echo "You're root. This script isn't meant for that."
+  exit
+fi
+
+# no specific version - if not installed, install it now
+
+
 ## install prerequisites
 sudo apt install -y \
     software-properties-common apt-transport-https curl

@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [[ $EUID != 0 ]]; then
+  <&2 echo "You're not root. This script isn't meant for that."
+  exit
+fi
+
+
 # install prerequisites
 apt install -y sudo wget
 

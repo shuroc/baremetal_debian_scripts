@@ -1,15 +1,20 @@
 #!/bin/bash
 
+if [[ $EUID = 0 ]]; then
+  <&2 echo "You're root. This script isn't meant for that."
+  exit
+fi
+
 CONTROL_PLANE_ENDPOINT="k8s.alpha-centauri.enforge.de"
 POD_NETWORK_CIDR="10.244.0.0/16"
 
 
 # configuring container runtime
 # https://kubernetes.io/docs/setup/production-environment/container-runtimes/#docker
-echo "Reminder: no swap!"
-echo "Please make sure you have docker installed!"
+echo "Reminder: No swap!"
+echo "Reminder: Please make sure you have docker installed!"
 
-sleep 3 # wait, so the user has time to cancel the script
+sleep 5 # wait, so the user has time to cancel the script
 
 printf '{
   "exec-opts": ["native.cgroupdriver=systemd"],

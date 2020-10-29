@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [[ $EUID = 0 ]]; then
+  <&2 echo "You're root. This script isn't meant for that."
+  exit
+fi
+
+version=3.0.0
+
+installed_version=$(task --version | cut -d' ' -f3)
+installcheck=$?
+
+if [ $installcheck -ne 0 -or "$installed_version" != "$version" ]; then
+  # on first installation and
+  # on version changes, too
+  curl -L "https://github.com/go-task/task/releases/download/v$version/task_linux_amd64.deb" -o ./go-task.deb && sudo dpkg -i ./go-task.deb && sudo rm ./go-task.deb    
+fi

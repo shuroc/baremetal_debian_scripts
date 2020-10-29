@@ -1,5 +1,13 @@
 #!/bin/bash
 
+if [[ $EUID = 0 ]]; then
+  <&2 echo "You're root. This script isn't meant for that."
+  exit
+fi
+
+# no specific version - if not installed, install it now
+
+
 # run install.sh from Microsoft -> xrdp installer
 wget https://raw.githubusercontent.com/microsoft/linux-vm-tools/master/ubuntu/18.04/install.sh
 chmod +x ./install.sh

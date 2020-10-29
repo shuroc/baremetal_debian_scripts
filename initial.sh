@@ -1,5 +1,10 @@
 #/bin/bash
 
+if [[ $EUID != 0 ]]; then
+  <&2 echo "You're not root. This script isn't meant for that."
+  exit
+fi
+
 #####
 # updating & basic tooling
 #####
@@ -31,7 +36,7 @@ sudo service fail2ban restart
 echo "Installing sudo."
 apt install sudo -y
 
-echo "Adding $USER to sudoers."
+echo "Adding $(who am i | awk '{print $1}') to sudoers."
 /sbin/usermod -aG sudo $(who am i | awk '{print $1}') # making sure the correct user is added
 
 read -p "Do you want to reboot now, so the membership gets applied? [y|n] " -n 1 -r
