@@ -15,7 +15,8 @@ if [ "$installed_version" == "" ] || [ "$installed_version" != "$version" ]; the
   # on version changes, too
 
   git clone --single-branch --branch v$version https://github.com/elasticdog/transcrypt.git
-  chmod +x transcrypt/transcrypt
   sudo mv transcrypt/transcrypt /usr/local/bin/transcrypt
   rm -drf ./transcrypt
+  sudo chown root:root /usr/local/bin/transcrypt
+  sudo chmod +x /usr/local/bin/transcrypt
 fi
