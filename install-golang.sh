@@ -5,7 +5,7 @@ if [[ $EUID -eq 0 ]]; then
   exit
 fi
 
-version=1.14.3
+version=1.15.3
 
 
 installed_version=$(go version | cut -d' ' -f3 | cut -d'o' -f2)
@@ -20,5 +20,5 @@ if [ "$installed_version" == "" ] || [ "$installed_version" != "$version" ]; the
   # on first installation and
   # on version changes, too
 
-  curl -L https://dl.google.com/go/gov$version.linux-amd64.tar.gz -o ./go.tar.gz && sudo tar -C /usr/local -xzf ./go.tar.gz && rm ./go.tar.gz
+  curl -L https://golang.org/dl/go$version.linux-amd64.tar.gz -o ./go.tar.gz && sudo tar -C /usr/local -xzf ./go.tar.gz && rm ./go.tar.gz
 fi
