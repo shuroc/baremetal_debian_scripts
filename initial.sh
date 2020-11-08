@@ -17,6 +17,7 @@ apt install coreutils ntp -y
 echo "To manually resync time use"
 echo "  service ntp restart"
 sleep 3
+timedatectl set-timezone Europe/Berlin
 
 #####
 # hardening
