@@ -15,5 +15,7 @@ Pin-Priority: 990
 " | sudo tee /etc/apt/preferences.d/90_zfs
 
 sudo apt update
-sudo apt install -y dpkg-dev linux-headers-$(uname -r) linux-image-amd64
-sudo apt install -y zfs-dkms zfsutils-linux
+sudo apt install -y dpkg-dev linux-headers-$(uname -r) linux-image-amd64 debootstrap gdisk dkms
+sudo apt install -y -t buster-backports --no-install-recommends zfs-dkms
+sudo modprobe zfs
+sudo apt install -y -t buster-backports zfsutils-linux
