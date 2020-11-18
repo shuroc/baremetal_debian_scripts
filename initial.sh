@@ -24,11 +24,11 @@ timedatectl set-timezone Europe/Berlin
 #####
 
 apt install fail2ban -y
-sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
-sudo sed -i 's/bantime  = 10m$/bantime  = 1h/' /etc/fail2ban/jail.local
-sudo sed -i 's/findtime  = 10m$/findtime  = 1h/' /etc/fail2ban/jail.local
+cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+sed -i 's/bantime  = 10m$/bantime  = 1h/' /etc/fail2ban/jail.local
+sed -i 's/findtime  = 10m$/findtime  = 1h/' /etc/fail2ban/jail.local
 # jail for ssh is activated by default
-sudo service fail2ban restart
+service fail2ban restart
 
 #####
 # install and configure sudo
