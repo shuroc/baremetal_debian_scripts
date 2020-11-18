@@ -9,24 +9,38 @@ fi
 # install prerequisites
 apt install -y sudo wget
 
+# add group if it doesn't exist yet
+if [ groups | grep "sshusers" == "" ]; then
+  groupadd sshusers
+fi
+# allow group for ssh access (and restart sshd) if not already set
+if [ grep "AllowGroups sshusers" /etc/ssh/sshd_config == "" ]; then
+  echo "AllowGroups sshusers" | sudo tee -a /etc/ssh/sshd_config >/dev/null
+fi
+
 # create user
 username=enforge
 useradd --create-home --shell /bin/bash $username
-passwd $username # setting userpassword interactively
   # --shell: define default shell for user
+passwd $username # setting userpassword interactively
 usermod -aG sudo $username
+usermod -aG sshusers $username
 
 # load ssh-key
-mkdir -p /home/$username/.ssh/
-wget -O /home/$username/.ssh/authorized_keys https://github.com/tillhoff.keys
-chown -R $username:$username /home/$username/.ssh
-chmod 700 /home/$username/.ssh
-chmod 600 /home/$username/.ssh/authorized_keys
+runuser -l $username -c "~/.ssh"
+runuser -l $username -c "chmod 700 ~/.ssh"
+runuser -l $username -c "wget -O ~/.ssh/authorized_keys https://github.com/tillhoff.keys"
+runuser -l $username -c "chmod 600 ~/.ssh/authorized_keys"
 
-# disable ssh-login with root-account
-sed -i "s/^#PasswordAuthentication yes$/PasswordAuthentication no/" /etc/ssh/sshd_config
-sed -i "s/^PermitRootLogin yes$/PermitRootLogin no/" /etc/ssh/sshd_config
+# disable ChallengeResponseAuthentication (via ssh)
+sed -i "s/^#*ChallengeResponseAuthentication .*$/ChallengeResponseAuthentication no/" /etc/ssh/sshd_config
+# disable password login (via ssh)
+sed -i "s/^#*PasswordAuthentication .*$/PasswordAuthentication no/" /etc/ssh/sshd_config
+# disable UsePAM (via ssh)
+sed -i "s/^#*UsePAM .*$/UsePAM no/" /etc/ssh/sshd_config
+# disable login with root-account (via ssh)
+sed -i "s/^#*PermitRootLogin .*$/PermitRootLogin no/" /etc/ssh/sshd_config
 systemctl restart sshd
 
-
-# note: login is now only possible with cert-based ssh as $username
+printf "%s\n" \
+  "login is now only possible with cert-based ssh as $username"
