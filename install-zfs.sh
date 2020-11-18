@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [[ $EUID != 0 ]]; then
-  <&2 echo "You're not root. This script isn't meant for that."
+if [[ $EUID -eq 0 ]]; then
+  <&2 echo "You mustn't run this script as root."
   exit
 fi
 
