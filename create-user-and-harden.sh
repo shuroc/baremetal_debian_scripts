@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ $EUID != 0 ]]; then
+if [[ $EUID -ne 0 ]]; then
   <&2 echo "You must run this script as root."
   exit
 fi
