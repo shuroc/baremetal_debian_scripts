@@ -12,8 +12,8 @@ fi
 echo "Updating apt-packages."
 apt update && apt upgrade -y && apt autoremove && apt clean -y
 
-echo "Installing coreutils and ntp."
-apt install coreutils ntp -y
+echo "Installing coreutils, ntp and rsync."
+apt install coreutils ntp rsync -y
 echo "To manually resync time use"
 echo "  service ntp restart"
 sleep 3
