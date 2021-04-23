@@ -17,7 +17,7 @@ printf "%s\n" \
   | sudo tee /etc/apt/preferences.d/90_zfs >/dev/null
 
 sudo apt update
-sudo apt install -y dpkg-dev linux-headers-$(uname -r) linux-image-amd64 debootstrap gdisk dkms
+sudo apt install -y dpkg-dev linux-headers-$(uname -r) linux-image-$(dpkg --print-architecture) debootstrap gdisk dkms
 sudo apt install -y -t buster-backports --no-install-recommends zfs-dkms
 sudo modprobe zfs
 sudo apt install -y -t buster-backports zfsutils-linux

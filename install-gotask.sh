@@ -13,5 +13,5 @@ if [ "$installed_version" == "" ] || [ "$installed_version" != "$version" ]; the
   # on first installation and
   # on version changes, too
   
-  curl -L "https://github.com/go-task/task/releases/download/v$version/task_linux_amd64.deb" -o ./go-task.deb && sudo dpkg -i ./go-task.deb && sudo rm ./go-task.deb    
+  curl -L "https://github.com/go-task/task/releases/download/v$version/task_linux_$(dpkg --print-architecture).deb" -o ./go-task.deb && sudo dpkg -i ./go-task.deb && sudo rm ./go-task.deb    
 fi

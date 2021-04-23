@@ -21,5 +21,5 @@ if [ "$installed_version" == "" ] || [ "$installed_version" != "$version" ]; the
   # on first installation and
   # on version changes, too
 
-  curl -L https://golang.org/dl/go$version.linux-amd64.tar.gz -o ./go.tar.gz && sudo tar -C /usr/local -xzf ./go.tar.gz && rm ./go.tar.gz
+  curl -L https://golang.org/dl/go$version.linux-$(dpkg --print-architecture).tar.gz -o ./go.tar.gz && sudo tar -C /usr/local -xzf ./go.tar.gz && rm ./go.tar.gz
 fi
