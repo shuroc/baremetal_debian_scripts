@@ -14,7 +14,7 @@ At the end continue with only the 'basic-system-tools'-package selected.
 $ su root # if needed
 $ apt install -y git
 $ exit
-$ git clone https://github.com/tillhoff/baremetal-debian-scripts
+$ git clone https://github.com/thetillhoff/baremetal-debian-scripts
 $ cd baremetal-debian-scripts
 $ su root
 $ ./initial.sh

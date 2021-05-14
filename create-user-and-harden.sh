@@ -29,7 +29,7 @@ usermod -aG sshusers $username
 # load ssh-key
 runuser -l $username -c "~/.ssh"
 runuser -l $username -c "chmod 700 ~/.ssh"
-runuser -l $username -c "wget -O ~/.ssh/authorized_keys https://github.com/tillhoff.keys"
+runuser -l $username -c "wget -O ~/.ssh/authorized_keys https://github.com/thetillhoff.keys"
 runuser -l $username -c "chmod 600 ~/.ssh/authorized_keys"
 
 # disable ChallengeResponseAuthentication (via ssh)
